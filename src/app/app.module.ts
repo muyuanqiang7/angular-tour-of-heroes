@@ -10,13 +10,16 @@ import {HttpModule} from '@angular/http';
 import {AppRoutingModule} from './app-routing.moudle'
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
+import {HeroSearchComponent} from './hero-search.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroDetailComponent,
     HeroesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroesComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,
