@@ -10,4 +10,13 @@
     {{selectedHero.name | uppercase}} is my hero
   </h2>
   <button (click)="gotoDetail()">View Details</button>
-</div>
+</div><br>
+
+<button (click)="onClickMe()">clickMe!</button><br>
+{{clickMessage}}
+<label>click:</label><input (keyup)="onKey($event)">
+{{values}}
+<br>
+<label>input: </label><input #box (keyup.enter)="update(box.value)" (blur)="update(box.value)">
+{{box.value}}
+

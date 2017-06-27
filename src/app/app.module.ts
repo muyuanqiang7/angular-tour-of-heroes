@@ -19,7 +19,6 @@ import {AppLogService} from './app-log.servoce'
     HeroDetailComponent,
     HeroesComponent,
     DashboardComponent,
-    HeroesComponent,
     HeroSearchComponent
   ],
   imports: [
