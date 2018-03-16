@@ -7,3 +7,44 @@
   </a>
 </div>
 <app-hero-search></app-hero-search>
+<table class="table" style="border-top: 10px;">
+  <thead>
+  <tr>
+    <th>网元名</th>
+    <th>版块数量</th>
+    <th>版块类型</th>
+  </tr>
+  </thead>
+  <tbody>
+  <div *ngFor="let eac of equipmentsStatistiArray;index as ind;">
+    <tr>
+      <td attr.rowspan="{{eac.boards.length}}}">
+        {{eac.neName}}{{eac.boards.length}}
+      </td>
+      <span *ngFor="let eachBoard of eac.boards | exponentialStrength;let first = first;">
+        <span *ngIf="first">
+      <td>
+      {{eachBoard.num}}
+      </td>
+      <td>
+      {{eachBoard.type}}
+      </td>
+          </span>
+      </span>
+    </tr>
+
+    <div *ngFor="let eachBoard of eac.boards| slice:1;">
+      <tr>
+        <td>
+          {{eachBoard.num}}
+        </td>
+        <td>
+          {{eachBoard.type}}
+        </td>
+      </tr>
+    </div>
+  </div>
+  </tbody>
+</table>
+<button (click)="consoleLog()">Click</button>
+
