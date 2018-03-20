@@ -3,6 +3,7 @@ import {Hero} from './hero';
 import {HeroService} from './hero.service';
 import {AppLogService} from './app-log.servoce';
 import {AlarmDetailService} from './extend/service/alarm-detail.service';
+import {element} from 'protractor';
 
 declare var jquery: any;
 declare var $: any;
@@ -67,6 +68,15 @@ export class DashboardComponent implements OnInit {
 
   closeModal() {
     const detailModal = $('.modal');
+    const detailForm = $('#detailForm');
+    console.log(detailForm);
+    console.log(detailForm.serializeArray());
+    console.log(JSON.stringify(detailForm.serializeArray()));
+    const result = {};
+    detailForm.serializeArray().forEach(element => {
+      result[element.name] = element.value;
+    });
+    console.log(result);
     detailModal.modal('hide');
   };
 
