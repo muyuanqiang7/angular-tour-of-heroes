@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core'
 
 @Injectable()
 export class AppLogService {
-  log(message: any) {
-    console.log(message);
+  log(...message: any[]) {
+    message.forEach(element => console.log(element));
+    // console.log(message);
   }
 
   error(message: any) {

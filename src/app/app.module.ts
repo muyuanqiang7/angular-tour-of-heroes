@@ -13,6 +13,8 @@ import {InMemoryDataService} from './in-memory-data.service';
 import {HeroSearchComponent} from './hero-search.component'
 import {AppLogService} from './app-log.servoce';
 import {ExponentialStrengthPipe} from './exponential-strength.pipe';
+import {AlarmDetailComponent} from './extend/alarm-detail/alarm-detail.component';
+import {AlarmDetailService} from './extend/service/alarm-detail.service'
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import {ExponentialStrengthPipe} from './exponential-strength.pipe';
     HeroesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    ExponentialStrengthPipe
+    ExponentialStrengthPipe,
+    AlarmDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import {ExponentialStrengthPipe} from './exponential-strength.pipe';
     AppRoutingModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
-  providers: [HeroService, AppLogService],
+  providers: [HeroService, AppLogService, AlarmDetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Hero} from './hero';
 import {HeroService} from './hero.service';
 import {AppLogService} from './app-log.servoce';
+import {AlarmDetailService} from './extend/service/alarm-detail.service';
 
 declare var jquery: any;
 declare var $: any;
@@ -38,7 +39,7 @@ export class DashboardComponent implements OnInit {
     }
   ];
 
-  constructor(private heroService: HeroService, private log: AppLogService) {
+  constructor(private heroService: HeroService, private log: AppLogService, private alaramDetailService: AlarmDetailService) {
   };
 
   ngOnInit(): void {
@@ -49,6 +50,9 @@ export class DashboardComponent implements OnInit {
       this.heroes = heroes.slice(1, 5);
       // console.log(this.equipmentsStatistiArray);
     });
+    this.alaramDetailService.output$.subscribe(v => {
+      this.log.log(v, new Date());
+    })
   };
 
   consoleLog(): void {
