@@ -18,7 +18,7 @@
   <tbody>
   <ng-container *ngFor="let eac of equipmentsStatistiArray;index as ind;">
     <tr>
-      <td attr.rowspan="{{eac.boards.length}}" class="text-center">
+      <td attr.rowspan="{{eac.boards.length}}" class="text-center py-git auto">
         {{eac.neName}}{{eac.boards.length}}
       </td>
       <ng-container *ngFor="let eachBoard of eac.boards | exponentialStrength;let first = first;">
