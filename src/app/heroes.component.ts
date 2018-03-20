@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Hero} from './hero';
 import {HeroService} from './hero.service';
 import {Router} from '@angular/router';
-import {AppLogService} from "./app-log.servoce";
+import {AppLogService} from './app-log.servoce';
 
 
 @Component({
