@@ -12,7 +12,7 @@ import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
 import {HeroSearchComponent} from './hero-search.component'
 import {AppLogService} from './app-log.servoce';
-import { ExponentialStrengthPipe } from './exponential-strength.pipe'
+import {ExponentialStrengthPipe} from './exponential-strength.pipe';
 
 @NgModule({
   declarations: [

@@ -3,6 +3,9 @@ import {Hero} from './hero';
 import {HeroService} from './hero.service';
 import {AppLogService} from './app-log.servoce';
 
+declare var jquery: any;
+declare var $: any;
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -10,6 +13,7 @@ import {AppLogService} from './app-log.servoce';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
+  showAlert = false;
   equipmentsStatistiArray = [
     {
       neName: 'lily',
@@ -39,15 +43,30 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.heroService.getHeroes().then(heroes => {
-      this.log.log(heroes);
+      // this.log.log(heroes);
       // this.log.error(heroes);
       // this.log.warn(heroes);
       this.heroes = heroes.slice(1, 5);
-      console.log(this.equipmentsStatistiArray);
+      // console.log(this.equipmentsStatistiArray);
     });
   };
 
   consoleLog(): void {
     console.log(this.equipmentsStatistiArray);
+  };
+
+  showModal() {
+    const detailModal = $('.modal');
+    console.log(detailModal);
+    detailModal.modal('show');
+  };
+
+  closeModal() {
+    const detailModal = $('.modal');
+    detailModal.modal('hide');
+  };
+
+  alertWarning() {
+    this.showAlert = !this.showAlert;
   }
 }
