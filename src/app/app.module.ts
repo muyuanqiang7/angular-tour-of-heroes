@@ -14,7 +14,9 @@ import {HeroSearchComponent} from './hero-search.component'
 import {AppLogService} from './app-log.servoce';
 import {ExponentialStrengthPipe} from './exponential-strength.pipe';
 import {AlarmDetailComponent} from './extend/alarm-detail/alarm-detail.component';
-import {AlarmDetailService} from './extend/service/alarm-detail.service'
+import {AlarmDetailService} from './extend/service/alarm-detail.service';
+import {HttpClientModule} from '@angular/common/http';
+import { ArrayFilterPipe } from './array-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,14 +26,16 @@ import {AlarmDetailService} from './extend/service/alarm-detail.service'
     DashboardComponent,
     HeroSearchComponent,
     ExponentialStrengthPipe,
-    AlarmDetailComponent
+    AlarmDetailComponent,
+    ArrayFilterPipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService)
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    HttpClientModule,
   ],
   providers: [HeroService, AppLogService, AlarmDetailService],
   bootstrap: [AppComponent]

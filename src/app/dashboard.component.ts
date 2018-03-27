@@ -3,7 +3,7 @@ import {Hero} from './hero';
 import {HeroService} from './hero.service';
 import {AppLogService} from './app-log.servoce';
 import {AlarmDetailService} from './extend/service/alarm-detail.service';
-import {element} from 'protractor';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
 declare var jquery: any;
 declare var $: any;
@@ -40,7 +40,9 @@ export class DashboardComponent implements OnInit {
     }
   ];
 
-  constructor(private heroService: HeroService, private log: AppLogService, private alaramDetailService: AlarmDetailService) {
+  alarmArray = [1, 2, 4, 6, 7, 8];
+
+  constructor(private heroService: HeroService, private log: AppLogService, private alaramDetailService: AlarmDetailService, private httpClient: HttpClient) {
   };
 
   ngOnInit(): void {
@@ -53,7 +55,7 @@ export class DashboardComponent implements OnInit {
     });
     this.alaramDetailService.output$.subscribe(v => {
       this.log.log(v, new Date());
-    })
+    });
   };
 
   consoleLog(): void {
@@ -81,6 +83,22 @@ export class DashboardComponent implements OnInit {
   };
 
   alertWarning() {
+    const params = new HttpParams().set('page', '1').set('limit', '8');
+    const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
+    this.httpClient.get('//127.0.0.1:8080/uaa/index/userInfo', {headers: headers, observe: 'events', params: params})
+      .toPromise().then(response => console.log(response))
+      .catch(this.handleError);
     this.showAlert = !this.showAlert;
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
+  };
+
+  addItem() {
+    const max = Math.max.apply(Math, this.alarmArray);
+    this.alarmArray.push(max + 1);
+    console.log(this.alarmArray);
   }
 }
