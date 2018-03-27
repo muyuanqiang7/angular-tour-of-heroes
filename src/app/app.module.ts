@@ -16,7 +16,9 @@ import {ExponentialStrengthPipe} from './exponential-strength.pipe';
 import {AlarmDetailComponent} from './extend/alarm-detail/alarm-detail.component';
 import {AlarmDetailService} from './extend/service/alarm-detail.service';
 import {HttpClientModule} from '@angular/common/http';
-import { ArrayFilterPipe } from './array-filter.pipe';
+import {ArrayFilterPipe} from './array-filter.pipe';
+import {AngularTreeComponent} from './angular-tree/angular-tree.component';
+import {TreeModule} from 'angular-tree-component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { ArrayFilterPipe } from './array-filter.pipe';
     ExponentialStrengthPipe,
     AlarmDetailComponent,
     ArrayFilterPipe,
+    AngularTreeComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { ArrayFilterPipe } from './array-filter.pipe';
     AppRoutingModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     HttpClientModule,
+    TreeModule
   ],
   providers: [HeroService, AppLogService, AlarmDetailService],
   bootstrap: [AppComponent]
