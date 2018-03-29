@@ -7,38 +7,33 @@ import {ITreeOptions} from 'angular-tree-component';
   styleUrls: ['./angular-tree.component.css']
 })
 export class AngularTreeComponent implements OnInit {
-  nodes = [
-    {
-      id: 1,
-      name: 'root1',
-      children: [
-        {id: 2, name: 'child1'},
-        {id: 3, name: 'child2'}
-      ]
-    },
-    {
-      id: 4,
-      name: 'root2',
-      children: [
-        {id: 5, name: 'child2.1'},
-        {
-          id: 6,
-          name: 'child2.2',
-          children: [
-            {id: 7, name: 'subsub'}
-          ]
-        }
-      ]
-    }
-  ];
+  nodes = [];
   options: ITreeOptions = {
-    useCheckbox: true
+    useCheckbox: true,
+    displayField: 'type',
+    childrenField: 'versions'
   };
 
-  optionsDisabled: ITreeOptions = {
-    useCheckbox: true,
-    useTriState: false
-  };
+  updateTree() {
+    this.nodes = this.nodes.concat([{
+      'type': 'PSS-32',
+      'sum': 4,
+      'versions': [{
+        'type': 'PSS-32',
+        'version': '10.0',
+        'num': 4
+      }]
+    }]);
+    console.log(this.nodes);
+  }
+
+  print() {
+    const win = window.open('', '_blank');
+    win.document.write('Yml');
+    win.print();
+  }
+
+  onEvent = ($event) => console.log($event);
 
   constructor() {
   }

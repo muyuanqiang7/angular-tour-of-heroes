@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.heroService.getHeroes().then(heroes => {
+    this.heroService.getHeroes().subscribe(heroes => {
       // this.log.log(heroes);
       // this.log.error(heroes);
       // this.log.warn(heroes);

@@ -1,20 +1,13 @@
 <h3>tri-state checkboxes</h3>
+<button type="button" class="btn-primary btn" (click)="updateTree()">Update</button>
+<button type="button" class="btn-primary btn" (click)="print()">Print</button>
 <tree-root
   id="tree1"
   [nodes]="nodes"
-  [options]="options">
-</tree-root>
-<h3>The tree is using flexbox.<br>
-  Switch expander and checkbox with CSS 'order' attribute:</h3>
-<tree-root
-  class="reverse"
-  id="tree2"
-  [nodes]="nodes"
-  [options]="options">
-</tree-root>
-<h3>Disable tri-state checkboxes</h3>
-<tree-root
-  id="tree3"
-  [nodes]="nodes"
-  [options]="optionsDisabled">
+  [options]="options"
+  (toggleExpanded)="onEvent($event)"
+  (activate)="onEvent($event)"
+  (focus)="onEvent($event)"
+  (blur)="onEvent($event)">
+
 </tree-root>
