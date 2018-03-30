@@ -19,6 +19,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ArrayFilterPipe} from './array-filter.pipe';
 import {AngularTreeComponent} from './angular-tree/angular-tree.component';
 import {TreeModule} from 'angular-tree-component';
+import { EchartsComponentComponent } from './echarts-component/echarts-component.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {TreeModule} from 'angular-tree-component';
     AlarmDetailComponent,
     ArrayFilterPipe,
     AngularTreeComponent,
+    EchartsComponentComponent,
   ],
   imports: [
     BrowserModule,
