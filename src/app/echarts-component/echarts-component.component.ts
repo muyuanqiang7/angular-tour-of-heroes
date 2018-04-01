@@ -12,6 +12,16 @@ export class EchartsComponentComponent implements OnInit {
       trigger: 'axis',
       axisPointer: {            // 坐标轴指示器，坐标轴触发有效
         type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+      },
+      formatter: function (params) {
+        params = params.filter(element => element.data !== '');
+        let result = params[0].axisValueLabel + '<br>';
+        params = params.map(element => {
+          return '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:' + element.color +
+            ';"></span>' + element.name + ': ' + element.value;
+        }).join('<br>');
+        result = result + params;
+        return result;
       }
     },
     grid: {
@@ -43,6 +53,22 @@ export class EchartsComponentComponent implements OnInit {
           },
           {
             'type': 'PSS-45',
+            'version': '15.0',
+            'num': 5
+          }
+        ],
+        'sum': 4
+      },
+      {
+        'type': 'PSS-82',
+        'versions': [
+          {
+            'type': 'PSS-90',
+            'version': '10.0',
+            'num': 7
+          },
+          {
+            'type': 'PSS-78',
             'version': '15.0',
             'num': 5
           }
@@ -129,7 +155,7 @@ export class EchartsComponentComponent implements OnInit {
   }
 
   b64DecodeUnicode(str) {
-    // Going backwards: from bytestream, to percent-encoding, to original string.
+    // Going backwards: from byte stream, to percent-encoding, to original string.
     return decodeURIComponent(atob(str).split('').map(function (c) {
       return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
