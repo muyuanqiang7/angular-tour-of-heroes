@@ -24,6 +24,9 @@ export class EchartsComponentComponent implements OnInit {
         return result;
       }
     },
+    legend: {
+      show: false
+    },
     grid: {
       left: '3%',
       right: '4%',
