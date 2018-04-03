@@ -21,7 +21,11 @@
       "styles": [
         "styles.css",
         "../node_modules/bootstrap/dist/css/bootstrap.css",
-        "../node_modules/angular-tree-component/dist/angular-tree-component.css"
+        "../node_modules/angular-tree-component/dist/angular-tree-component.css",
+        "../node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-brands.css",
+        "../node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-regular.css",
+        "../node_modules/@fortawesome/fontawesome-free-webfonts/css/fa-solid.css",
+        "../node_modules/@fortawesome/fontawesome-free-webfonts/css/fontawesome.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
