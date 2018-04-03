@@ -46,7 +46,7 @@
   </ng-container>
   </tbody>
 </table>
-<button (click)="consoleLog()">Click</button>
+<button (click)="consoleLog()" type="button" class="btn btn-info">Click</button>
 <!-- Large modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" (click)="showModal()">Large modal
 </button>
@@ -97,8 +97,16 @@
 <br>
 <button type="button" class="btn btn-primary" (click)="addItem()">add item</button>
 <ng-container *ngFor="let item of alarmArray | arrayFilter">
-  <button class="btn btn-warning" type="button">{{item}}</button>
+  <button class="btn btn-warning" type="button" (click)="itemClick(item)">{{item}}</button>
 </ng-container>
 <app-angular-tree></app-angular-tree>
 <app-echarts-component></app-echarts-component>
+<br>
+<div class="card text-white bg-success mb-3" style="max-width: 8rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Success card title</h5>
+    <p class="card-text">Some quick example</p>
+  </div>
+</div>
 

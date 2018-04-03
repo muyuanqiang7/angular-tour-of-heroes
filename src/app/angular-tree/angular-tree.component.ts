@@ -22,6 +22,14 @@ export class AngularTreeComponent implements OnInit {
         'type': 'PSS-32',
         'version': '10.0',
         'num': 4
+      }, {
+        'type': 'PSS-45',
+        'version': '10.0',
+        'num': 4
+      }, {
+        'type': 'PSS-48',
+        'version': '10.0',
+        'num': 4
       }]
     }]);
     console.log(this.nodes);

@@ -78,7 +78,6 @@ export class DashboardComponent implements OnInit {
     detailForm.serializeArray().forEach(element => {
       result[element.name] = element.value;
     });
-    console.log(result);
     detailModal.modal('hide');
   };
 
@@ -99,6 +98,9 @@ export class DashboardComponent implements OnInit {
   addItem() {
     const max = Math.max.apply(Math, this.alarmArray);
     this.alarmArray.push(max + 1);
-    console.log(this.alarmArray);
+  }
+
+  itemClick(item) {
+    console.log(item);
   }
 }
