@@ -8,11 +8,15 @@ import {AngularTreeComponent} from './angular-tree/angular-tree.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  {path: 'dashboard', component: DashboardComponent},
+  {
+    path: 'dashboard', component: DashboardComponent, children: [
+      {path: 'echarts', outlet: 'aux', component: EchartsComponentComponent},
+      {path: 'tree', outlet: 'aux', component: AngularTreeComponent}
+    ]
+  },
   {path: 'detail/:id', component: HeroDetailComponent},
   {path: 'heroes', component: HeroesComponent},
-  {path: 'echarts', component: EchartsComponentComponent},
-  {path: 'tree', component: AngularTreeComponent}
+
 
 ];
 

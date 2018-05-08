@@ -47,6 +47,10 @@ export class DashboardComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    $('.nav .nav-link').on('click', function () {
+      $('.nav').find('.active').removeClass('active');
+      $(this).addClass('active');
+    });
     this.heroService.getHeroes().subscribe(heroes => {
       // this.log.log(heroes);
       // this.log.error(heroes);
