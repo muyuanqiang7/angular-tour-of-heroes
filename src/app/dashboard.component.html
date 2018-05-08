@@ -46,6 +46,8 @@
   </ng-container>
   </tbody>
 </table>
+<app-hero-add-form></app-hero-add-form>
+<br>
 <button (click)="consoleLog()" type="button" class="btn btn-info">Click</button>
 <!-- Large modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" (click)="showModal()">Large modal
@@ -99,8 +101,6 @@
 <ng-container *ngFor="let item of alarmArray | arrayFilter">
   <button class="btn btn-warning" type="button" (click)="itemClick(item)">{{item}}</button>
 </ng-container>
-<app-angular-tree></app-angular-tree>
-<app-echarts-component></app-echarts-component>
 <br>
 <ul class="fa-ul">
   <li><i class="fa-li fas fa-check-square"></i>List icons</li>
@@ -120,3 +120,11 @@
   </div>
 </div>
 
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" routerLink="/echarts">Echarts</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/tree">AngularTree</a>
+  </li>
+</ul>

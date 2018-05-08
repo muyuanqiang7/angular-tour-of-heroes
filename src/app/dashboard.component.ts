@@ -4,6 +4,7 @@ import {HeroService} from './hero.service';
 import {AppLogService} from './app-log.servoce';
 import {AlarmDetailService} from './extend/service/alarm-detail.service';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {ProductControllerService} from './api/productController.service';
 
 declare var jquery: any;
 declare var $: any;
@@ -42,7 +43,7 @@ export class DashboardComponent implements OnInit {
 
   alarmArray = [1, 2, 4, 6, 7, 8];
 
-  constructor(private heroService: HeroService, private log: AppLogService, private alaramDetailService: AlarmDetailService, private httpClient: HttpClient) {
+  constructor(private heroService: HeroService, private log: AppLogService, private alaramDetailService: AlarmDetailService, private httpClient: HttpClient, private  productControllerService: ProductControllerService) {
   };
 
   ngOnInit(): void {
@@ -59,6 +60,13 @@ export class DashboardComponent implements OnInit {
   };
 
   consoleLog(): void {
+    this.productControllerService.deleteUsingDELETE(1, 'response', false).subscribe(response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      }
+    );
     console.log(this.equipmentsStatistiArray);
   };
 

@@ -6,7 +6,6 @@ import {HeroDetailComponent} from './hero-detail.component';
 import {HeroesComponent} from './heroes.component';
 import {HeroService} from './hero.service';
 import {DashboardComponent} from './dashboard.component'
-import {HttpModule} from '@angular/http';
 import {AppRoutingModule} from './app-routing.moudle'
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
@@ -19,7 +18,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {ArrayFilterPipe} from './array-filter.pipe';
 import {AngularTreeComponent} from './angular-tree/angular-tree.component';
 import {TreeModule} from 'angular-tree-component';
-import { EchartsComponentComponent } from './echarts-component/echarts-component.component';
+import {EchartsComponentComponent} from './echarts-component/echarts-component.component';
+import {HeroAddFormComponent} from './hero-add-form/hero-add-form.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ProductControllerService} from './api/productController.service';
 
 @NgModule({
   declarations: [
@@ -33,17 +35,18 @@ import { EchartsComponentComponent } from './echarts-component/echarts-component
     ArrayFilterPipe,
     AngularTreeComponent,
     EchartsComponentComponent,
+    HeroAddFormComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
     AppRoutingModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     HttpClientModule,
-    TreeModule
+    TreeModule,
+    ReactiveFormsModule
   ],
-  providers: [HeroService, AppLogService, AlarmDetailService],
+  providers: [HeroService, AppLogService, AlarmDetailService, ProductControllerService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
