@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {Hero} from './hero';
 import {HeroService} from './hero.service';
 import {AppLogService} from './app-log.servoce';
@@ -14,7 +15,7 @@ declare var $: any;
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
   heroes: Hero[] = [];
   showAlert = false;
   equipmentsStatistiArray = [
@@ -43,7 +44,10 @@ export class DashboardComponent implements OnInit {
 
   alarmArray = [1, 2, 4, 6, 7, 8];
 
-  constructor(private heroService: HeroService, private log: AppLogService, private alaramDetailService: AlarmDetailService, private httpClient: HttpClient, private  productControllerService: ProductControllerService) {
+  constructor(private heroService: HeroService, private log: AppLogService,
+              private alaramDetailService: AlarmDetailService, private httpClient: HttpClient,
+              private  productControllerService: ProductControllerService,
+              private router: Router) {
   };
 
   ngOnInit(): void {
@@ -61,6 +65,7 @@ export class DashboardComponent implements OnInit {
     this.alaramDetailService.output$.subscribe(v => {
       this.log.log(v, new Date());
     });
+    this.router.navigate(['/dashboard', {outlets: {aux: ['echarts']}}]);
   };
 
   consoleLog(): void {
@@ -73,6 +78,10 @@ export class DashboardComponent implements OnInit {
     );
     console.log(this.equipmentsStatistiArray);
   };
+
+  ngAfterViewInit(): void {
+    // this.router.navigate(['/dashboard', {outlets: {aux: ['echarts']}}]);
+  }
 
   showModal() {
     const detailModal = $('.modal');
