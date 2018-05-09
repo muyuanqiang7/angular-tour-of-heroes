@@ -65,7 +65,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.alaramDetailService.output$.subscribe(v => {
       this.log.log(v, new Date());
     });
-    this.router.navigate(['/dashboard', {outlets: {aux: ['echarts']}}]);
   };
 
   consoleLog(): void {
@@ -80,7 +79,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   };
 
   ngAfterViewInit(): void {
-    // this.router.navigate(['/dashboard', {outlets: {aux: ['echarts']}}]);
+    this.router.navigate(['/dashboard', {outlets: {aux: ['echarts']}}]);
   }
 
   showModal() {
