@@ -51,10 +51,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   };
 
   ngOnInit(): void {
-    $('.nav .nav-link').on('click', function () {
-      $('.nav').find('.active').removeClass('active');
-      $(this).addClass('active');
-    });
+    // $('.nav .nav-link').on('click', function () {
+    //   $('.nav').find('.active').removeClass('active');
+    //   $(this).addClass('active');
+    // });
     this.heroService.getHeroes().subscribe(heroes => {
       // this.log.log(heroes);
       // this.log.error(heroes);
@@ -79,7 +79,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   };
 
   ngAfterViewInit(): void {
-    this.router.navigate(['/dashboard', {outlets: {aux: ['echarts']}}]);
+    // this.router.navigate(['/dashboard', {outlets: {aux: ['echarts']}}]);
   }
 
   showModal() {
